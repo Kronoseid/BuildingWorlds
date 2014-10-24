@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: taxi.ma
-//Last modified: Thu, Oct 23, 2014 08:56:20 PM
+//Last modified: Fri, Oct 24, 2014 02:22:57 PM
 //Codeset: 1252
 requires maya "2015";
 currentUnit -l centimeter -a degree -t film;
@@ -72,8 +72,12 @@ createNode transform -n "pasted__pCylinder3" -p "group";
 	setAttr ".t" -type "double3" -4.8708931767682921 -1.378414851947573 2.6623869950588044 ;
 	setAttr ".r" -type "double3" 89.540862506626368 0 0 ;
 	setAttr ".s" -type "double3" 1.7409815664048547 0.49816477075489479 1.7409815664048547 ;
-createNode mesh -n "pasted__pCylinderShape3" -p "pasted__pCylinder3";
+createNode transform -n "transform7" -p "|group|pasted__pCylinder3";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pCylinderShape3" -p "transform7";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -84,8 +88,12 @@ createNode mesh -n "pasted__pCylinderShape3" -p "pasted__pCylinder3";
 createNode transform -n "pCube1";
 	setAttr ".t" -type "double3" 0.34948725745895887 0.07143306670928995 0.23862515460272604 ;
 	setAttr ".s" -type "double3" 17.121810931243338 3.4414098003923934 5.6937741665535482 ;
-createNode mesh -n "pCubeShape1" -p "pCube1";
+createNode transform -n "transform6" -p "pCube1";
+	setAttr ".v" no;
+createNode mesh -n "pCubeShape1" -p "transform6";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.5 0.5 ;
@@ -94,14 +102,18 @@ createNode mesh -n "pCubeShape1" -p "pCube1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt";
+	setAttr -s 2 ".pt";
 	setAttr ".pt[3]" -type "float3" -0.056172032 0 0 ;
 	setAttr ".pt[5]" -type "float3" -0.056172032 0 0 ;
 createNode transform -n "pCube2";
 	setAttr ".t" -type "double3" -0.15638338147762987 2.7110821851090083 0.22639621367209761 ;
 	setAttr ".s" -type "double3" 11.508280574361915 2.4977161799192338 5.5158254675114549 ;
-createNode mesh -n "pCubeShape2" -p "pCube2";
+createNode transform -n "transform5" -p "pCube2";
+	setAttr ".v" no;
+createNode mesh -n "pCubeShape2" -p "transform5";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.75 0.375 ;
@@ -129,8 +141,12 @@ createNode transform -n "pasted__pasted__pCylinder3" -p "|group1|pasted__group";
 	setAttr ".t" -type "double3" -4.8708931767682921 -1.378414851947573 2.6623869950588044 ;
 	setAttr ".r" -type "double3" 89.540862506626368 0 0 ;
 	setAttr ".s" -type "double3" 1.7409815664048547 0.49816477075489479 1.7409815664048547 ;
-createNode mesh -n "pasted__pasted__pCylinderShape3" -p "|group1|pasted__group|pasted__pasted__pCylinder3";
+createNode transform -n "transform4" -p "|group1|pasted__group|pasted__pasted__pCylinder3";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pasted__pCylinderShape3" -p "transform4";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -150,8 +166,12 @@ createNode transform -n "pasted__pasted__pCylinder3" -p "|group2|pasted__group";
 	setAttr ".t" -type "double3" -4.8708931767682921 -1.378414851947573 2.6623869950588044 ;
 	setAttr ".r" -type "double3" 89.540862506626368 0 0 ;
 	setAttr ".s" -type "double3" 1.7409815664048547 0.49816477075489479 1.7409815664048547 ;
-createNode mesh -n "pasted__pasted__pCylinderShape3" -p "|group2|pasted__group|pasted__pasted__pCylinder3";
+createNode transform -n "transform3" -p "|group2|pasted__group|pasted__pasted__pCylinder3";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pasted__pCylinderShape3" -p "transform3";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -175,8 +195,12 @@ createNode transform -n "pasted__pasted__pasted__pCylinder3" -p "pasted__pasted_
 	setAttr ".t" -type "double3" -4.9486411657564124 -1.3989111561054697 2.6623869950588044 ;
 	setAttr ".r" -type "double3" 89.540862506626368 0 0 ;
 	setAttr ".s" -type "double3" 1.7409815664048547 0.49816477075489479 1.7409815664048547 ;
-createNode mesh -n "pasted__pasted__pasted__pCylinderShape3" -p "pasted__pasted__pasted__pCylinder3";
+createNode transform -n "transform2" -p "pasted__pasted__pasted__pCylinder3";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pasted__pasted__pCylinderShape3" -p "transform2";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -187,8 +211,23 @@ createNode mesh -n "pasted__pasted__pasted__pCylinderShape3" -p "pasted__pasted_
 createNode transform -n "pCube3";
 	setAttr ".t" -type "double3" -0.18007023439423264 4.2668322094340914 0.21281109671706933 ;
 	setAttr ".s" -type "double3" 1 1 4.5296303348966838 ;
-createNode mesh -n "pCubeShape3" -p "pCube3";
+createNode transform -n "transform1" -p "pCube3";
+	setAttr ".v" no;
+createNode mesh -n "pCubeShape3" -p "transform1";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "pasted__pCylinder3";
+createNode mesh -n "pasted__pCylinder3Shape" -p "|pasted__pCylinder3";
+	setAttr -k off ".v";
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -296,6 +335,63 @@ createNode polyCylinder -n "pasted__pasted__pasted__polyCylinder3";
 	setAttr ".cuv" 3;
 createNode polyCube -n "polyCube3";
 	setAttr ".cuv" 4;
+createNode polyUnite -n "polyUnite1";
+	setAttr -s 7 ".ip";
+	setAttr -s 7 ".im";
+createNode groupId -n "groupId1";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts1";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:59]";
+createNode groupId -n "groupId2";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId3";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts2";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:5]";
+createNode groupId -n "groupId4";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId5";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts3";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:5]";
+createNode groupId -n "groupId6";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId7";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts4";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:59]";
+createNode groupId -n "groupId8";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId9";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts5";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:59]";
+createNode groupId -n "groupId10";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId11";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts6";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:59]";
+createNode groupId -n "groupId12";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId13";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts7";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:5]";
+createNode groupId -n "groupId14";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId15";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts8";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:257]";
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -308,8 +404,9 @@ select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
 select -ne :initialShadingGroup;
-	setAttr -s 7 ".dsm";
+	setAttr -s 15 ".dsm";
 	setAttr ".ro" yes;
+	setAttr -s 15 ".gn";
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
 select -ne :defaultResolution;
@@ -324,31 +421,124 @@ select -ne :hardwareRenderingGlobals;
 		 0 0 0 0 ;
 select -ne :defaultHardwareRenderGlobals;
 	setAttr ".res" -type "string" "ntsc_4d 646 485 1.333";
-connectAttr "pasted__polyCylinder3.out" "pasted__pCylinderShape3.i";
-connectAttr "polyCube1.out" "pCubeShape1.i";
-connectAttr "polyCube2.out" "pCubeShape2.i";
-connectAttr "pasted__pasted__polyCylinder3.out" "|group1|pasted__group|pasted__pasted__pCylinder3|pasted__pasted__pCylinderShape3.i"
+connectAttr "groupParts1.og" "pasted__pCylinderShape3.i";
+connectAttr "groupId1.id" "pasted__pCylinderShape3.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pasted__pCylinderShape3.iog.og[0].gco";
+connectAttr "groupId2.id" "pasted__pCylinderShape3.ciog.cog[0].cgid";
+connectAttr "groupParts2.og" "pCubeShape1.i";
+connectAttr "groupId3.id" "pCubeShape1.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pCubeShape1.iog.og[0].gco";
+connectAttr "groupId4.id" "pCubeShape1.ciog.cog[0].cgid";
+connectAttr "groupParts3.og" "pCubeShape2.i";
+connectAttr "groupId5.id" "pCubeShape2.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pCubeShape2.iog.og[0].gco";
+connectAttr "groupId6.id" "pCubeShape2.ciog.cog[0].cgid";
+connectAttr "groupParts4.og" "|group1|pasted__group|pasted__pasted__pCylinder3|transform4|pasted__pasted__pCylinderShape3.i"
 		;
-connectAttr "pasted__pasted__polyCylinder4.out" "|group2|pasted__group|pasted__pasted__pCylinder3|pasted__pasted__pCylinderShape3.i"
+connectAttr "groupId7.id" "|group1|pasted__group|pasted__pasted__pCylinder3|transform4|pasted__pasted__pCylinderShape3.iog.og[0].gid"
 		;
-connectAttr "pasted__pasted__pasted__polyCylinder3.out" "pasted__pasted__pasted__pCylinderShape3.i"
+connectAttr ":initialShadingGroup.mwc" "|group1|pasted__group|pasted__pasted__pCylinder3|transform4|pasted__pasted__pCylinderShape3.iog.og[0].gco"
 		;
-connectAttr "polyCube3.out" "pCubeShape3.i";
+connectAttr "groupId8.id" "|group1|pasted__group|pasted__pasted__pCylinder3|transform4|pasted__pasted__pCylinderShape3.ciog.cog[0].cgid"
+		;
+connectAttr "groupParts5.og" "|group2|pasted__group|pasted__pasted__pCylinder3|transform3|pasted__pasted__pCylinderShape3.i"
+		;
+connectAttr "groupId9.id" "|group2|pasted__group|pasted__pasted__pCylinder3|transform3|pasted__pasted__pCylinderShape3.iog.og[0].gid"
+		;
+connectAttr ":initialShadingGroup.mwc" "|group2|pasted__group|pasted__pasted__pCylinder3|transform3|pasted__pasted__pCylinderShape3.iog.og[0].gco"
+		;
+connectAttr "groupId10.id" "|group2|pasted__group|pasted__pasted__pCylinder3|transform3|pasted__pasted__pCylinderShape3.ciog.cog[0].cgid"
+		;
+connectAttr "groupParts6.og" "pasted__pasted__pasted__pCylinderShape3.i";
+connectAttr "groupId11.id" "pasted__pasted__pasted__pCylinderShape3.iog.og[0].gid"
+		;
+connectAttr ":initialShadingGroup.mwc" "pasted__pasted__pasted__pCylinderShape3.iog.og[0].gco"
+		;
+connectAttr "groupId12.id" "pasted__pasted__pasted__pCylinderShape3.ciog.cog[0].cgid"
+		;
+connectAttr "groupParts7.og" "pCubeShape3.i";
+connectAttr "groupId13.id" "pCubeShape3.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pCubeShape3.iog.og[0].gco";
+connectAttr "groupId14.id" "pCubeShape3.ciog.cog[0].cgid";
+connectAttr "groupParts8.og" "pasted__pCylinder3Shape.i";
+connectAttr "groupId15.id" "pasted__pCylinder3Shape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pasted__pCylinder3Shape.iog.og[0].gco";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
+connectAttr "pasted__pCylinderShape3.o" "polyUnite1.ip[0]";
+connectAttr "pCubeShape1.o" "polyUnite1.ip[1]";
+connectAttr "pCubeShape2.o" "polyUnite1.ip[2]";
+connectAttr "|group1|pasted__group|pasted__pasted__pCylinder3|transform4|pasted__pasted__pCylinderShape3.o" "polyUnite1.ip[3]"
+		;
+connectAttr "|group2|pasted__group|pasted__pasted__pCylinder3|transform3|pasted__pasted__pCylinderShape3.o" "polyUnite1.ip[4]"
+		;
+connectAttr "pasted__pasted__pasted__pCylinderShape3.o" "polyUnite1.ip[5]";
+connectAttr "pCubeShape3.o" "polyUnite1.ip[6]";
+connectAttr "pasted__pCylinderShape3.wm" "polyUnite1.im[0]";
+connectAttr "pCubeShape1.wm" "polyUnite1.im[1]";
+connectAttr "pCubeShape2.wm" "polyUnite1.im[2]";
+connectAttr "|group1|pasted__group|pasted__pasted__pCylinder3|transform4|pasted__pasted__pCylinderShape3.wm" "polyUnite1.im[3]"
+		;
+connectAttr "|group2|pasted__group|pasted__pasted__pCylinder3|transform3|pasted__pasted__pCylinderShape3.wm" "polyUnite1.im[4]"
+		;
+connectAttr "pasted__pasted__pasted__pCylinderShape3.wm" "polyUnite1.im[5]";
+connectAttr "pCubeShape3.wm" "polyUnite1.im[6]";
+connectAttr "pasted__polyCylinder3.out" "groupParts1.ig";
+connectAttr "groupId1.id" "groupParts1.gi";
+connectAttr "polyCube1.out" "groupParts2.ig";
+connectAttr "groupId3.id" "groupParts2.gi";
+connectAttr "polyCube2.out" "groupParts3.ig";
+connectAttr "groupId5.id" "groupParts3.gi";
+connectAttr "pasted__pasted__polyCylinder3.out" "groupParts4.ig";
+connectAttr "groupId7.id" "groupParts4.gi";
+connectAttr "pasted__pasted__polyCylinder4.out" "groupParts5.ig";
+connectAttr "groupId9.id" "groupParts5.gi";
+connectAttr "pasted__pasted__pasted__polyCylinder3.out" "groupParts6.ig";
+connectAttr "groupId11.id" "groupParts6.gi";
+connectAttr "polyCube3.out" "groupParts7.ig";
+connectAttr "groupId13.id" "groupParts7.gi";
+connectAttr "polyUnite1.out" "groupParts8.ig";
+connectAttr "groupId15.id" "groupParts8.gi";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "pasted__pCylinderShape3.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape2.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|group1|pasted__group|pasted__pasted__pCylinder3|pasted__pasted__pCylinderShape3.iog" ":initialShadingGroup.dsm"
+connectAttr "pasted__pCylinderShape3.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pasted__pCylinderShape3.ciog.cog[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "pCubeShape1.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape1.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape2.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape2.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "|group1|pasted__group|pasted__pasted__pCylinder3|transform4|pasted__pasted__pCylinderShape3.iog.og[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|group2|pasted__group|pasted__pasted__pCylinder3|pasted__pasted__pCylinderShape3.iog" ":initialShadingGroup.dsm"
+connectAttr "|group1|pasted__group|pasted__pasted__pCylinder3|transform4|pasted__pasted__pCylinderShape3.ciog.cog[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "pasted__pasted__pasted__pCylinderShape3.iog" ":initialShadingGroup.dsm"
+connectAttr "|group2|pasted__group|pasted__pasted__pCylinder3|transform3|pasted__pasted__pCylinderShape3.iog.og[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "pCubeShape3.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "|group2|pasted__group|pasted__pasted__pCylinder3|transform3|pasted__pasted__pCylinderShape3.ciog.cog[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "pasted__pasted__pasted__pCylinderShape3.iog.og[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "pasted__pasted__pasted__pCylinderShape3.ciog.cog[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "pCubeShape3.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape3.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pasted__pCylinder3Shape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "groupId1.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId3.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId4.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId5.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId6.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId7.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId8.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId9.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId10.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId11.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId12.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId13.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId14.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId15.msg" ":initialShadingGroup.gn" -na;
 // End of taxi.ma

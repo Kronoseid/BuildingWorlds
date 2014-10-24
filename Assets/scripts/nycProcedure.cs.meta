@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: ab4791560219d244f9460e51b5a7dd80
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - tower: {fileID: 400000, guid: a5b66b9ba5e5afd4bbd90dcaefa9fb51, type: 3}
+  - taxi: {fileID: 400032, guid: b49e0ff0169cc8c43a3c6a23cb0e4de2, type: 3}
+  - bagel: {fileID: 400000, guid: ab0cc69188319db43828de6093abd7df, type: 3}
+  - bridge: {fileID: 400112, guid: 54ee9e772acd7c94a880ea6d72ab4571, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: freedomTower.ma
-//Last modified: Thu, Oct 23, 2014 09:27:11 PM
+//Last modified: Fri, Oct 24, 2014 02:21:59 PM
 //Codeset: 1252
 requires maya "2015";
 currentUnit -l centimeter -a degree -t film;
@@ -12,12 +12,12 @@ fileInfo "osv" "Microsoft Windows 8 Home Premium Edition, 64-bit  (Build 9200)\n
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 18.56439698957621 13.923297742182141 18.564396989576135 ;
+	setAttr ".t" -type "double3" 31.682572433284914 23.761929324963681 31.682572433284854 ;
 	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999972 -5.172681101354183e-014 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 29.717535079319489;
+	setAttr ".coi" 50.716861862946402;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -57,7 +57,7 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 100.1;
-	setAttr ".ow" 22.434396745508746;
+	setAttr ".ow" 36.028505437585416;
 	setAttr ".imn" -type "string" "side";
 	setAttr ".den" -type "string" "side_depth";
 	setAttr ".man" -type "string" "side_mask";
@@ -65,8 +65,12 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".o" yes;
 createNode transform -n "pCube1";
 	setAttr ".t" -type "double3" 0.17060666633074284 -7.7775634420892104 -0.046251708630357768 ;
-createNode mesh -n "pCubeShape1" -p "pCube1";
+createNode transform -n "transform12" -p "pCube1";
+	setAttr ".v" no;
+createNode mesh -n "pCubeShape1" -p "transform12";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.625 0.125 ;
@@ -86,8 +90,12 @@ createNode transform -n "group";
 createNode transform -n "pPyramid1";
 	setAttr ".t" -type "double3" 2.1620975355038246 2.2160614334139783 0.019304537592419919 ;
 	setAttr ".s" -type "double3" 0.061563845416474174 6.0431394976382071 0.76786897488040129 ;
-createNode mesh -n "pPyramidShape1" -p "pPyramid1";
+createNode transform -n "transform11" -p "pPyramid1";
+	setAttr ".v" no;
+createNode mesh -n "pPyramidShape1" -p "transform11";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -102,8 +110,12 @@ createNode transform -n "group1";
 createNode transform -n "pasted__pPyramid1" -p "group1";
 	setAttr ".t" -type "double3" 1.9391324445120981 0.60772305068185428 0.019304537592419922 ;
 	setAttr ".s" -type "double3" 0.061563845416474174 6.0431394976382071 0.76786897488040129 ;
-createNode mesh -n "pasted__pPyramidShape1" -p "pasted__pPyramid1";
+createNode transform -n "transform10" -p "pasted__pPyramid1";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pPyramidShape1" -p "transform10";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -123,8 +135,12 @@ createNode transform -n "pasted__group1" -p "group2";
 createNode transform -n "pasted__pasted__pPyramid1" -p "pasted__group1";
 	setAttr ".t" -type "double3" 0.060847780408933787 2.2145881556716809 0.13087487807760678 ;
 	setAttr ".s" -type "double3" 0.061563845416474174 6.0431394976382071 0.76786897488040129 ;
-createNode mesh -n "pasted__pasted__pPyramidShape1" -p "pasted__pasted__pPyramid1";
+createNode transform -n "transform9" -p "pasted__pasted__pPyramid1";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pasted__pPyramidShape1" -p "transform9";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -148,8 +164,12 @@ createNode transform -n "pasted__pasted__group1" -p "|group3|pasted__group2";
 createNode transform -n "pasted__pasted__pasted__pPyramid1" -p "|group3|pasted__group2|pasted__pasted__group1";
 	setAttr ".t" -type "double3" 0.70041817922237748 1.2940999233245769 0.017116180891966402 ;
 	setAttr ".s" -type "double3" 0.061563845416474174 6.0431394976382071 0.76786897488040129 ;
-createNode mesh -n "pasted__pasted__pasted__pPyramidShape1" -p "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1";
+createNode transform -n "transform8" -p "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pasted__pasted__pPyramidShape1" -p "transform8";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -175,8 +195,12 @@ createNode transform -n "pasted__pasted__pasted__pPyramid1" -p "|group4|pasted__
 	setAttr ".t" -type "double3" 3.1685008497751808 2.0205932166507719 3.286236534688078 ;
 	setAttr ".r" -type "double3" 0 -47.633612581737282 0 ;
 	setAttr ".s" -type "double3" 0.061563845416474174 6.0431394976382071 0.76786897488040129 ;
-createNode mesh -n "pasted__pasted__pasted__pPyramidShape1" -p "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1";
+createNode transform -n "transform7" -p "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pasted__pasted__pPyramidShape1" -p "transform7";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.5 0.75 ;
@@ -185,8 +209,6 @@ createNode mesh -n "pasted__pasted__pasted__pPyramidShape1" -p "|group4|pasted__
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt[0:3]" -type "float3"  0 0 0.65008795 0 0 5.6832477e-008 
-		0 0 -0.65008795 0 0 -4.1083073e-017;
 createNode transform -n "group5";
 	setAttr ".t" -type "double3" 1.8218128359747698 0 2.0004219375409242 ;
 	setAttr ".rp" -type "double3" -0.7094220933462545 2.0205932166507714 -1.0006519474975109 ;
@@ -209,8 +231,12 @@ createNode transform -n "pasted__pasted__pasted__pasted__pPyramid1" -p "pasted__
 	setAttr ".t" -type "double3" 3.1685008497751808 2.0205932166507719 3.286236534688078 ;
 	setAttr ".r" -type "double3" 0 -47.633612581737282 0 ;
 	setAttr ".s" -type "double3" 0.061563845416474174 6.0431394976382071 0.76786897488040129 ;
-createNode mesh -n "pasted__pasted__pasted__pasted__pPyramidShape1" -p "pasted__pasted__pasted__pasted__pPyramid1";
+createNode transform -n "transform6" -p "pasted__pasted__pasted__pasted__pPyramid1";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pasted__pasted__pasted__pPyramidShape1" -p "transform6";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.5 0.25 ;
@@ -219,8 +245,6 @@ createNode mesh -n "pasted__pasted__pasted__pasted__pPyramidShape1" -p "pasted__
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt[0:3]" -type "float3"  0 0 0.67537224 0 0 5.90429e-008 
-		0 0 -0.67537224 0 0 4.2680965e-017;
 createNode transform -n "group6";
 	setAttr ".t" -type "double3" -2.0004219375409256 0 0 ;
 	setAttr ".r" -type "double3" 0 90 0 ;
@@ -248,8 +272,12 @@ createNode transform -n "pasted__pasted__pasted__pasted__pasted__pPyramid1" -p "
 	setAttr ".t" -type "double3" 3.1685008497751808 2.0205932166507719 3.286236534688078 ;
 	setAttr ".r" -type "double3" 0 -47.633612581737282 0 ;
 	setAttr ".s" -type "double3" 0.061563845416474174 6.0431394976382071 0.76786897488040129 ;
-createNode mesh -n "pasted__pasted__pasted__pasted__pasted__pPyramidShape1" -p "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1";
+createNode transform -n "transform5" -p "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pasted__pasted__pasted__pasted__pPyramidShape1" -p "transform5";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.5 0.25 ;
@@ -258,8 +286,6 @@ createNode mesh -n "pasted__pasted__pasted__pasted__pasted__pPyramidShape1" -p "
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt[0:3]" -type "float3"  0 0 0.74951607 0 0 6.5524766e-008 
-		0 0 -0.74951607 0 0 5.7234592e-017;
 createNode transform -n "group7";
 	setAttr ".rp" -type "double3" 1.1123907426285153 2.0205932166507714 0.99976999004341338 ;
 	setAttr ".sp" -type "double3" 1.1123907426285153 2.0205932166507714 0.99976999004341338 ;
@@ -285,8 +311,12 @@ createNode transform -n "pasted__pasted__pasted__pasted__pasted__pPyramid1" -p "
 	setAttr ".t" -type "double3" 3.1685008497751808 2.0205932166507719 3.286236534688078 ;
 	setAttr ".r" -type "double3" 0 -47.633612581737282 0 ;
 	setAttr ".s" -type "double3" 0.061563845416474174 6.0431394976382071 0.76786897488040129 ;
-createNode mesh -n "pasted__pasted__pasted__pasted__pasted__pPyramidShape1" -p "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1";
+createNode transform -n "transform4" -p "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1";
+	setAttr ".v" no;
+createNode mesh -n "pasted__pasted__pasted__pasted__pasted__pPyramidShape1" -p "transform4";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.5 0.25 ;
@@ -295,8 +325,6 @@ createNode mesh -n "pasted__pasted__pasted__pasted__pasted__pPyramidShape1" -p "
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt[0:3]" -type "float3"  0 0 0.73418152 0 0 6.4184178e-008 
-		0 0 -0.73418152 0 0 4.6397487e-017;
 createNode transform -n "group8";
 	setAttr ".t" -type "double3" 1.8575346562880004 0 -1.9647001172276934 ;
 	setAttr ".rp" -type "double3" -0.88803119491241023 2.0205932166507714 0.9997699900434136 ;
@@ -329,9 +357,13 @@ createNode transform -n "pasted__pasted__pasted__pasted__pasted__pasted__pPyrami
 	setAttr ".t" -type "double3" 3.1685008497751808 2.0205932166507719 3.286236534688078 ;
 	setAttr ".r" -type "double3" 0 -47.633612581737282 0 ;
 	setAttr ".s" -type "double3" 0.061563845416474174 6.0431394976382071 0.76786897488040129 ;
+createNode transform -n "transform3" -p "pasted__pasted__pasted__pasted__pasted__pasted__pPyramid1";
+	setAttr ".v" no;
 createNode mesh -n "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1" 
-		-p "pasted__pasted__pasted__pasted__pasted__pasted__pPyramid1";
+		-p "transform3";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.5 0.25 ;
@@ -340,13 +372,44 @@ createNode mesh -n "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShap
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt[0:3]" -type "float3"  0 0 0.62677497 0 0 5.4794405e-008 
-		0 0 -0.62677497 0 0 -2.3105715e-017;
 createNode transform -n "pPyramid2";
 	setAttr ".t" -type "double3" -0.031012782459110433 2.2658287082572945 0.10164306534017253 ;
 	setAttr ".s" -type "double3" 1.16584274022089 14.134417291540986 1.16584274022089 ;
-createNode mesh -n "pPyramidShape2" -p "pPyramid2";
+createNode transform -n "transform2" -p "pPyramid2";
+	setAttr ".v" no;
+createNode mesh -n "pPyramidShape2" -p "transform2";
 	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "pCube2";
+	setAttr ".t" -type "double3" 0.069668436535252454 9.8279834942864497 0.018934571540365042 ;
+	setAttr ".r" -type "double3" 0 -44.623004705155168 0 ;
+	setAttr ".s" -type "double3" 0.74346941421588641 0.63073382271535627 1.0364023777651425 ;
+createNode transform -n "transform1" -p "pCube2";
+	setAttr ".v" no;
+createNode mesh -n "pCubeShape2" -p "transform1";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 2 ".iog[0].og";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "pCube3";
+createNode mesh -n "pCube3Shape" -p "pCube3";
+	setAttr -k off ".v";
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -471,6 +534,147 @@ createNode polyPyramid -n "pasted__pasted__pasted__pasted__pasted__pasted__polyP
 createNode polyPyramid -n "polyPyramid2";
 	setAttr ".w" 2.3979051930162321;
 	setAttr ".cuv" 3;
+createNode polyCube -n "polyCube2";
+	setAttr ".w" 3.5136459466055037;
+	setAttr ".h" 0.60714521401185317;
+	setAttr ".d" 2.4977824995106896;
+	setAttr ".cuv" 4;
+createNode polyConnectComponents -n "polyConnectComponents1";
+	setAttr ".uopa" yes;
+createNode polyConnectComponents -n "polyConnectComponents2";
+	setAttr ".uopa" yes;
+createNode polyConnectComponents -n "polyConnectComponents3";
+	setAttr ".uopa" yes;
+createNode polyConnectComponents -n "polyConnectComponents4";
+	setAttr ".uopa" yes;
+createNode polyConnectComponents -n "polyConnectComponents5";
+	setAttr ".uopa" yes;
+createNode polyConnectComponents -n "polyConnectComponents6";
+	setAttr ".uopa" yes;
+createNode polyTweak -n "polyTweak1";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk[0:3]" -type "float3"  0 0 0.65008795 0 0 5.6832477e-008
+		 0 0 -0.65008795 0 0 -4.1083073e-017;
+createNode polyConnectComponents -n "polyConnectComponents7";
+	setAttr ".uopa" yes;
+createNode polyTweak -n "polyTweak2";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk[0:3]" -type "float3"  0 0 0.67537224 0 0 5.90429e-008
+		 0 0 -0.67537224 0 0 4.2680965e-017;
+createNode polyConnectComponents -n "polyConnectComponents8";
+	setAttr ".uopa" yes;
+createNode polyTweak -n "polyTweak3";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk[0:3]" -type "float3"  0 0 0.74951607 0 0 6.5524766e-008
+		 0 0 -0.74951607 0 0 5.7234592e-017;
+createNode polyConnectComponents -n "polyConnectComponents9";
+	setAttr ".uopa" yes;
+createNode polyTweak -n "polyTweak4";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk[0:3]" -type "float3"  0 0 0.73418152 0 0 6.4184178e-008
+		 0 0 -0.73418152 0 0 4.6397487e-017;
+createNode polyConnectComponents -n "polyConnectComponents10";
+	setAttr ".uopa" yes;
+createNode polyTweak -n "polyTweak5";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk[0:3]" -type "float3"  0 0 0.62677497 0 0 5.4794405e-008
+		 0 0 -0.62677497 0 0 -2.3105715e-017;
+createNode polyConnectComponents -n "polyConnectComponents11";
+	setAttr ".uopa" yes;
+createNode polyConnectComponents -n "polyConnectComponents12";
+	setAttr ".uopa" yes;
+createNode polyUnite -n "polyUnite1";
+	setAttr -s 12 ".ip";
+	setAttr -s 12 ".im";
+createNode groupId -n "groupId1";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts1";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:5]";
+createNode groupId -n "groupId2";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId3";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts2";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode groupId -n "groupId4";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId5";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts3";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode groupId -n "groupId6";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId7";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts4";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode groupId -n "groupId8";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId9";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts5";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode groupId -n "groupId10";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId11";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts6";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode groupId -n "groupId12";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId13";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts7";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode groupId -n "groupId14";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId15";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts8";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode groupId -n "groupId16";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId17";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts9";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode groupId -n "groupId18";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId19";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts10";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode groupId -n "groupId20";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId21";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts11";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode groupId -n "groupId22";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId23";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts12";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:5]";
+createNode groupId -n "groupId24";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId25";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts13";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:61]";
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -483,8 +687,9 @@ select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
 select -ne :initialShadingGroup;
-	setAttr -s 11 ".dsm";
+	setAttr -s 25 ".dsm";
 	setAttr ".ro" yes;
+	setAttr -s 25 ".gn";
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
 select -ne :defaultResolution;
@@ -499,46 +704,233 @@ select -ne :hardwareRenderingGlobals;
 		 0 0 0 0 ;
 select -ne :defaultHardwareRenderGlobals;
 	setAttr ".res" -type "string" "ntsc_4d 646 485 1.333";
-connectAttr "polyCube1.out" "pCubeShape1.i";
-connectAttr "polyPyramid1.out" "pPyramidShape1.i";
-connectAttr "pasted__polyPyramid1.out" "pasted__pPyramidShape1.i";
-connectAttr "pasted__pasted__polyPyramid1.out" "pasted__pasted__pPyramidShape1.i"
+connectAttr "groupParts1.og" "pCubeShape1.i";
+connectAttr "groupId1.id" "pCubeShape1.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pCubeShape1.iog.og[0].gco";
+connectAttr "groupId2.id" "pCubeShape1.ciog.cog[0].cgid";
+connectAttr "groupParts2.og" "pPyramidShape1.i";
+connectAttr "groupId3.id" "pPyramidShape1.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pPyramidShape1.iog.og[0].gco";
+connectAttr "groupId4.id" "pPyramidShape1.ciog.cog[0].cgid";
+connectAttr "groupParts3.og" "pasted__pPyramidShape1.i";
+connectAttr "groupId5.id" "pasted__pPyramidShape1.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pasted__pPyramidShape1.iog.og[0].gco";
+connectAttr "groupId6.id" "pasted__pPyramidShape1.ciog.cog[0].cgid";
+connectAttr "groupParts4.og" "pasted__pasted__pPyramidShape1.i";
+connectAttr "groupId7.id" "pasted__pasted__pPyramidShape1.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pasted__pasted__pPyramidShape1.iog.og[0].gco"
 		;
-connectAttr "pasted__pasted__pasted__polyPyramid1.out" "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|pasted__pasted__pasted__pPyramidShape1.i"
+connectAttr "groupId8.id" "pasted__pasted__pPyramidShape1.ciog.cog[0].cgid";
+connectAttr "groupParts5.og" "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform8|pasted__pasted__pasted__pPyramidShape1.i"
 		;
-connectAttr "pasted__pasted__pasted__polyPyramid2.out" "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|pasted__pasted__pasted__pPyramidShape1.i"
+connectAttr "groupId9.id" "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform8|pasted__pasted__pasted__pPyramidShape1.iog.og[0].gid"
 		;
-connectAttr "pasted__pasted__pasted__pasted__polyPyramid2.out" "pasted__pasted__pasted__pasted__pPyramidShape1.i"
+connectAttr ":initialShadingGroup.mwc" "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform8|pasted__pasted__pasted__pPyramidShape1.iog.og[0].gco"
 		;
-connectAttr "pasted__pasted__pasted__pasted__pasted__polyPyramid2.out" "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.i"
+connectAttr "groupId10.id" "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform8|pasted__pasted__pasted__pPyramidShape1.ciog.cog[0].cgid"
 		;
-connectAttr "pasted__pasted__pasted__pasted__pasted__polyPyramid3.out" "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.i"
+connectAttr "groupParts6.og" "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform7|pasted__pasted__pasted__pPyramidShape1.i"
 		;
-connectAttr "pasted__pasted__pasted__pasted__pasted__pasted__polyPyramid2.out" "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1.i"
+connectAttr "groupId11.id" "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform7|pasted__pasted__pasted__pPyramidShape1.iog.og[0].gid"
 		;
-connectAttr "polyPyramid2.out" "pPyramidShape2.i";
+connectAttr ":initialShadingGroup.mwc" "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform7|pasted__pasted__pasted__pPyramidShape1.iog.og[0].gco"
+		;
+connectAttr "groupId12.id" "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform7|pasted__pasted__pasted__pPyramidShape1.ciog.cog[0].cgid"
+		;
+connectAttr "groupParts7.og" "pasted__pasted__pasted__pasted__pPyramidShape1.i";
+connectAttr "groupId13.id" "pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0].gid"
+		;
+connectAttr ":initialShadingGroup.mwc" "pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0].gco"
+		;
+connectAttr "groupId14.id" "pasted__pasted__pasted__pasted__pPyramidShape1.ciog.cog[0].cgid"
+		;
+connectAttr "groupParts8.og" "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform5|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.i"
+		;
+connectAttr "groupId15.id" "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform5|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0].gid"
+		;
+connectAttr ":initialShadingGroup.mwc" "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform5|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0].gco"
+		;
+connectAttr "groupId16.id" "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform5|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.ciog.cog[0].cgid"
+		;
+connectAttr "groupParts9.og" "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform4|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.i"
+		;
+connectAttr "groupId17.id" "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform4|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0].gid"
+		;
+connectAttr ":initialShadingGroup.mwc" "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform4|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0].gco"
+		;
+connectAttr "groupId18.id" "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform4|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.ciog.cog[0].cgid"
+		;
+connectAttr "groupParts10.og" "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1.i"
+		;
+connectAttr "groupId19.id" "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0].gid"
+		;
+connectAttr ":initialShadingGroup.mwc" "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0].gco"
+		;
+connectAttr "groupId20.id" "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1.ciog.cog[0].cgid"
+		;
+connectAttr "groupParts11.og" "pPyramidShape2.i";
+connectAttr "groupId21.id" "pPyramidShape2.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pPyramidShape2.iog.og[0].gco";
+connectAttr "groupId22.id" "pPyramidShape2.ciog.cog[0].cgid";
+connectAttr "groupId23.id" "pCubeShape2.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pCubeShape2.iog.og[0].gco";
+connectAttr "groupParts12.og" "pCubeShape2.i";
+connectAttr "groupId24.id" "pCubeShape2.ciog.cog[0].cgid";
+connectAttr "groupParts13.og" "pCube3Shape.i";
+connectAttr "groupId25.id" "pCube3Shape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "pCube3Shape.iog.og[0].gco";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
+connectAttr "polyCube1.out" "polyConnectComponents1.ip";
+connectAttr "polyPyramid1.out" "polyConnectComponents2.ip";
+connectAttr "pasted__polyPyramid1.out" "polyConnectComponents3.ip";
+connectAttr "pasted__pasted__polyPyramid1.out" "polyConnectComponents4.ip";
+connectAttr "pasted__pasted__pasted__polyPyramid1.out" "polyConnectComponents5.ip"
+		;
+connectAttr "polyTweak1.out" "polyConnectComponents6.ip";
+connectAttr "pasted__pasted__pasted__polyPyramid2.out" "polyTweak1.ip";
+connectAttr "polyTweak2.out" "polyConnectComponents7.ip";
+connectAttr "pasted__pasted__pasted__pasted__polyPyramid2.out" "polyTweak2.ip";
+connectAttr "polyTweak3.out" "polyConnectComponents8.ip";
+connectAttr "pasted__pasted__pasted__pasted__pasted__polyPyramid2.out" "polyTweak3.ip"
+		;
+connectAttr "polyTweak4.out" "polyConnectComponents9.ip";
+connectAttr "pasted__pasted__pasted__pasted__pasted__polyPyramid3.out" "polyTweak4.ip"
+		;
+connectAttr "polyTweak5.out" "polyConnectComponents10.ip";
+connectAttr "pasted__pasted__pasted__pasted__pasted__pasted__polyPyramid2.out" "polyTweak5.ip"
+		;
+connectAttr "polyPyramid2.out" "polyConnectComponents11.ip";
+connectAttr "polyCube2.out" "polyConnectComponents12.ip";
+connectAttr "pCubeShape1.o" "polyUnite1.ip[0]";
+connectAttr "pPyramidShape1.o" "polyUnite1.ip[1]";
+connectAttr "pasted__pPyramidShape1.o" "polyUnite1.ip[2]";
+connectAttr "pasted__pasted__pPyramidShape1.o" "polyUnite1.ip[3]";
+connectAttr "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform8|pasted__pasted__pasted__pPyramidShape1.o" "polyUnite1.ip[4]"
+		;
+connectAttr "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform7|pasted__pasted__pasted__pPyramidShape1.o" "polyUnite1.ip[5]"
+		;
+connectAttr "pasted__pasted__pasted__pasted__pPyramidShape1.o" "polyUnite1.ip[6]"
+		;
+connectAttr "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform5|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.o" "polyUnite1.ip[7]"
+		;
+connectAttr "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform4|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.o" "polyUnite1.ip[8]"
+		;
+connectAttr "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1.o" "polyUnite1.ip[9]"
+		;
+connectAttr "pPyramidShape2.o" "polyUnite1.ip[10]";
+connectAttr "pCubeShape2.o" "polyUnite1.ip[11]";
+connectAttr "pCubeShape1.wm" "polyUnite1.im[0]";
+connectAttr "pPyramidShape1.wm" "polyUnite1.im[1]";
+connectAttr "pasted__pPyramidShape1.wm" "polyUnite1.im[2]";
+connectAttr "pasted__pasted__pPyramidShape1.wm" "polyUnite1.im[3]";
+connectAttr "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform8|pasted__pasted__pasted__pPyramidShape1.wm" "polyUnite1.im[4]"
+		;
+connectAttr "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform7|pasted__pasted__pasted__pPyramidShape1.wm" "polyUnite1.im[5]"
+		;
+connectAttr "pasted__pasted__pasted__pasted__pPyramidShape1.wm" "polyUnite1.im[6]"
+		;
+connectAttr "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform5|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.wm" "polyUnite1.im[7]"
+		;
+connectAttr "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform4|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.wm" "polyUnite1.im[8]"
+		;
+connectAttr "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1.wm" "polyUnite1.im[9]"
+		;
+connectAttr "pPyramidShape2.wm" "polyUnite1.im[10]";
+connectAttr "pCubeShape2.wm" "polyUnite1.im[11]";
+connectAttr "polyConnectComponents1.out" "groupParts1.ig";
+connectAttr "groupId1.id" "groupParts1.gi";
+connectAttr "polyConnectComponents2.out" "groupParts2.ig";
+connectAttr "groupId3.id" "groupParts2.gi";
+connectAttr "polyConnectComponents3.out" "groupParts3.ig";
+connectAttr "groupId5.id" "groupParts3.gi";
+connectAttr "polyConnectComponents4.out" "groupParts4.ig";
+connectAttr "groupId7.id" "groupParts4.gi";
+connectAttr "polyConnectComponents5.out" "groupParts5.ig";
+connectAttr "groupId9.id" "groupParts5.gi";
+connectAttr "polyConnectComponents6.out" "groupParts6.ig";
+connectAttr "groupId11.id" "groupParts6.gi";
+connectAttr "polyConnectComponents7.out" "groupParts7.ig";
+connectAttr "groupId13.id" "groupParts7.gi";
+connectAttr "polyConnectComponents8.out" "groupParts8.ig";
+connectAttr "groupId15.id" "groupParts8.gi";
+connectAttr "polyConnectComponents9.out" "groupParts9.ig";
+connectAttr "groupId17.id" "groupParts9.gi";
+connectAttr "polyConnectComponents10.out" "groupParts10.ig";
+connectAttr "groupId19.id" "groupParts10.gi";
+connectAttr "polyConnectComponents11.out" "groupParts11.ig";
+connectAttr "groupId21.id" "groupParts11.gi";
+connectAttr "polyConnectComponents12.out" "groupParts12.ig";
+connectAttr "groupId23.id" "groupParts12.gi";
+connectAttr "polyUnite1.out" "groupParts13.ig";
+connectAttr "groupId25.id" "groupParts13.gi";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pPyramidShape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pasted__pPyramidShape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pasted__pasted__pPyramidShape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|pasted__pasted__pasted__pPyramidShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "pCubeShape1.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape1.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pPyramidShape1.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pPyramidShape1.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pasted__pPyramidShape1.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pasted__pPyramidShape1.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pasted__pasted__pPyramidShape1.iog.og[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|pasted__pasted__pasted__pPyramidShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "pasted__pasted__pPyramidShape1.ciog.cog[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "pasted__pasted__pasted__pasted__pPyramidShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform8|pasted__pasted__pasted__pPyramidShape1.iog.og[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "|group3|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform8|pasted__pasted__pasted__pPyramidShape1.ciog.cog[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform7|pasted__pasted__pasted__pPyramidShape1.iog.og[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "|group4|pasted__group2|pasted__pasted__group1|pasted__pasted__pasted__pPyramid1|transform7|pasted__pasted__pasted__pPyramidShape1.ciog.cog[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "pPyramidShape2.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "pasted__pasted__pasted__pasted__pPyramidShape1.ciog.cog[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform5|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|group6|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform5|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.ciog.cog[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform4|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|group7|pasted__group5|pasted__pasted__group4|pasted__pasted__pasted__group2|pasted__pasted__pasted__pasted__group1|pasted__pasted__pasted__pasted__pasted__pPyramid1|transform4|pasted__pasted__pasted__pasted__pasted__pPyramidShape1.ciog.cog[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1.iog.og[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "pasted__pasted__pasted__pasted__pasted__pasted__pPyramidShape1.ciog.cog[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "pPyramidShape2.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pPyramidShape2.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape2.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape2.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pCube3Shape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "groupId1.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId3.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId4.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId5.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId6.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId7.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId8.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId9.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId10.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId11.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId12.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId13.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId14.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId15.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId16.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId17.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId18.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId19.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId20.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId21.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId22.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId23.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId24.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId25.msg" ":initialShadingGroup.gn" -na;
 // End of freedomTower.ma
